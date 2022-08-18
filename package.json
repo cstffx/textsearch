@@ -1,8 +1,8 @@
 {
-  "name": "textsearch",
+  "name": "textsearch-ts",
   "version": "1.0.0",
   "description": "Regular expression builder for JavaScript with search mode options.",
-  "main": "index.js",
+  "main": "lib/TextSearch.js",
   "scripts": {
     "build": "tsc",
     "test": "jest --config jestconfig.json",

@@ -16,8 +16,7 @@ export class TextSearchRegex {
             flags.push("i");
         }
 
-        for (let i = 0; i < term.length; i++) {
-            let char = term[i];
+        for (let char of term) {
             let variant = options?.alias ? options?.alias.get(char) : false;
             char = TextSearchRegex.scape(char);
             if (variant) {
