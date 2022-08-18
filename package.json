@@ -1,6 +1,6 @@
 {
-  "name": "textsearch-ts",
-  "version": "1.0.0",
+  "name": "cstffx-search",
+  "version": "1.0.1",
   "description": "Regular expression builder for JavaScript with search mode options.",
   "main": "lib/TextSearch.js",
   "scripts": {

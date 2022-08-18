@@ -1,15 +1,15 @@
 # Description
 Regular expression builder for JavaScript with search mode options.
 
-#Why? 
-Sometimes we need to filter an string collection, but we want to allow the user 
-to configure position, match case and if only complete words will count. In spanish 
+# Why? 
+Sometimes we need to filter an string collection, but we want to configure 
+position, match case and if only complete words will count. In spanish 
 is convenient for better user experience that some characters like 
 ``a`` and ``á`` can be considered iqual.
 
 This is easy with regular expressions. For example: 
 the regular expression ``/jon/`` will match if the secuence``jon`` is at any position in the 
-target string, but ``/jon$/`` will only if is at the end. ``textsearch`` provide a method to 
+target string, but ``/jon$/`` will only at the end. ``search-builder`` provide a method to 
 dinamically generate this regular expresions, you only need to pass the query and options. 
 
 # Example 
