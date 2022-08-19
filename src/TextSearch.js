@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 exports.TextSearch = void 0;
 var TextSearchRegex_1 = require("./TextSearchRegex");
 /**
