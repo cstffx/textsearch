@@ -29,7 +29,7 @@ export class TextSearch {
     if (query && query !== this.lastQuery) {
       this.updateRegex(query);
     }
-    return this.regex ? (!!input.match(this.regex)) : false
+    return this.regex ? !!input.match(this.regex) : false;
   }
 
   /**
@@ -38,7 +38,7 @@ export class TextSearch {
    */
   setOptions(options: TextSearchOptions) {
     this.options = options;
-    if(this.lastQuery){
+    if (this.lastQuery) {
       this.updateRegex(this.lastQuery);
     }
   }
