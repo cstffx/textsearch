@@ -1,8 +1,8 @@
 {
   "name": "cstffx-search",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Regular expression builder for JavaScript with search mode options.",
-  "main": "lib/TextSearch.js",
+  "main": "lib/index.js",
   "scripts": {
     "build": "tsc",
     "test": "jest --config jestconfig.json",
@@ -10,9 +10,9 @@
     "lint": "tslint -p tsconfig.json",
     "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint",
-    "preversion" : "npm run lint",
-    "version" : "npm run format && git add -A src",
-    "postversion" : "git push && git push --tags"
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
   },
   "repository": {
     "type": "git",
@@ -24,10 +24,8 @@
     "regexp",
     "string",
     "filter",
-    "text",
-    "search",
-    "regular",
-    "expression",
+    "text search",
+    "regular expression",
     "builder"
   ],
   "author": "Elihú Díaz Álvarez",
