@@ -1,11 +1,16 @@
 # Description
+
 Regular expression builder for JavaScript with search mode options.
 
-# Why? 
-Sometimes we need to filter a string collection, but we want to configure position, match case and if only complete words will count. In Spanish is convenient for a better user experience that some characters like a and á can be considered equal.
-This is easy with regular expressions. For example:  the regular expression ``/jon/`` will match if the sequence ``jon``is in any position in the target string, but ``/jon$/`` will only at the end. This package provide a method to dynamically generate this regular expression, you only need to pass the query and options.
+# Why?
 
-# Example 
+Sometimes we need to filter a string collection, but we want to configure position, match case and if only complete
+words will count. In Spanish is convenient for a better user experience that some characters like a and á can be
+considered equal. This is easy with regular expressions. For example:  the regular expression ``/jon/`` will match if
+the sequence ``jon``is in any position in the target string, but ``/jon$/`` will only at the end. This package provide a
+method to dynamically generate this regular expression, you only need to pass the query and options.
+
+# Example
 
 ```typescript
 TextSearchRegex.build("jon doe", {
@@ -16,27 +21,47 @@ TextSearchRegex.build("jon doe", {
 
 ```
 
-To reuse the same regular expression we can use the class ``TextSearch``. 
+To reuse the same regular expression we can use the class ``TextSearch``.
 
 ```javascript
-    const items = [
-        // ... string collection
-    ];
+const items = [
+    // ... string collection
+];
 
-    let search = new TextSearch("doe", {
-        word: true,
-        ignoreCase: true,
-        position: TextSearchPosition.End
-    });
-    
-    const result = items.filter( item => search.match(item) )
+let search = new TextSearch("doe", {
+    word: true,
+    ignoreCase: true,
+    position: TextSearchPosition.End
+});
+
+const result = items.filter(item => search.match(item))
 ```
 
-The result is a collection with strings that contains ``doe`` at the end, with any upper/lower case combination and only if ``doe`` is a complete word.
+The result is a collection with strings that contains ``doe`` at the end, with any upper/lower case combination and only
+if ``doe`` is a complete word.
+
+It also possible to reuse the TextSearch instance passing a second argument
+to the ``TextSearch.match`` function.
+
+```javascritpt
+  let search = new TextSearch();
+  search.setOptions({
+      word: true,
+      ignoreCase: true,
+      position: TextSearchPosition.End
+  });
+  
+  const someCallback(term, items){
+    return items.filter(item => search.match(item, term));
+  }
+```
+
+In this case ``TextSearch`` will generate a new regular expression if term change.
 
 # Alias
 
-As I mention before, sometime we need that two characters were considered as the same.  The ``alias`` option is a ``Map`` that can indicate this correspondence.
+As I mention before, sometime we need that two characters were considered as the same. The ``alias`` option is a ``Map``
+that can indicate this correspondence.
 
 ```javascript
     const alias = new Map([
@@ -52,6 +77,7 @@ As I mention before, sometime we need that two characters were considered as the
 This will generate the regular expresion: ``/(Á|A)baco/``.
 
 # Options
+
 Both ``TextSeach`` and ``TextSearchRegex`` receive the next options:
 
 - ``position?``: ``TextSearchPosition`` Indicates if the term must appear at the start, end of any position.

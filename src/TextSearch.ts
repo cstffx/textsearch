@@ -5,22 +5,51 @@ import { TextSearchRegex } from "./TextSearchRegex";
  * Allow to reuse a regular expresion with different strings input
  */
 export class TextSearch {
-  private regex: RegExp;
+  private regex?: RegExp;
+  private lastQuery?: string;
+  private options: TextSearchOptions;
 
   /**
    *
-   * @param term
+   * @param query
    * @param options
    */
-  constructor(term: string, options?: TextSearchOptions) {
-    this.regex = TextSearchRegex.build(term, options);
+  constructor(query?: string, options?: TextSearchOptions) {
+    this.options = options || {};
+    if (query) {
+      this.updateRegex(query);
+    }
   }
 
   /**
    * Return true if str match the regular expresion
-   * @param str
+   * @param input
    */
-  match(str: string): boolean {
-    return !!str.match(this.regex);
+  match(input: string, query?: string): boolean {
+    if (query && query !== this.lastQuery) {
+      this.updateRegex(query);
+    }
+    return this.regex ? (!!input.match(this.regex)) : false
+  }
+
+  /**
+   * Set the current options
+   * @param options
+   */
+  setOptions(options: TextSearchOptions) {
+    this.options = options;
+    if(this.lastQuery){
+      this.updateRegex(this.lastQuery);
+    }
+  }
+
+  /**
+   * Update the current regex
+   * @param term
+   * @param options
+   * @private
+   */
+  private updateRegex(term: string) {
+    this.regex = TextSearchRegex.build(term, this.options);
   }
 }
