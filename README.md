@@ -59,7 +59,7 @@ In this case ``TextSearch`` will generate a new regular expression if query chan
 
 # Alias
 
-As I mention before, sometime we need that two characters were considered as the same. The ``alias`` option is a ``Map``
+As I mentioned before, sometime we need that two characters were considered as the same. The ``alias`` option is a ``Map``
 that can indicate this correspondence.
 
 ```javascript
