@@ -1,6 +1,6 @@
 {
   "name": "cstffx-search",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Regular expression builder for JavaScript with search mode options.",
   "main": "lib/index.min.js",
   "module": "lib/index.esm.js",
