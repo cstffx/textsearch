@@ -18,7 +18,6 @@ TextSearchRegex.build("jon doe", {
 })
 
 // Will output /jon doe/i
-
 ```
 
 To reuse the same regular expression we can use the class ``TextSearch``.
@@ -43,20 +42,20 @@ if ``doe`` is a complete word.
 It also possible to reuse the TextSearch instance passing a second argument
 to the ``TextSearch.match`` function.
 
-```javascritpt
-  let search = new TextSearch();
-  search.setOptions({
-      word: true,
-      ignoreCase: true,
-      position: TextSearchPosition.End
-  });
+```javascript
+let search = new TextSearch();
+    search.setOptions({
+    word: true,
+    ignoreCase: true,
+    position: TextSearchPosition.End
+});
   
-  const someCallback(term, items){
-    return items.filter(item => search.match(item, term));
-  }
+const someCallback(query, items){
+    return items.filter(item => search.match(item, query));
+}
 ```
 
-In this case ``TextSearch`` will generate a new regular expression if term change.
+In this case ``TextSearch`` will generate a new regular expression if query change.
 
 # Alias
 
@@ -64,14 +63,12 @@ As I mention before, sometime we need that two characters were considered as the
 that can indicate this correspondence.
 
 ```javascript
-    const alias = new Map([
-        ['Á', 'A']
-    ])
+const alias = new Map([
+    ['Á', 'A']
+])
     
-    // Start
-    let regex = TextSearchRegex.build("Ábaco", {
-        alias
-    })
+// Start
+let regex = TextSearchRegex.build("Ábaco", {alias})
 ```
 
 This will generate the regular expresion: ``/(Á|A)baco/``.
@@ -80,7 +77,7 @@ This will generate the regular expresion: ``/(Á|A)baco/``.
 
 Both ``TextSeach`` and ``TextSearchRegex`` receive the next options:
 
-- ``position?``: ``TextSearchPosition`` Indicates if the term must appear at the start, end of any position.
+- ``position?``: ``TextSearchPosition`` Indicates if the query must appear at the start, end of any position.
 - ``ignoreCase?``: ``boolean`` If true no match case will be applied.
 - ``alias?``: ``Map<string, string>`` Indicate that a character can be treated as another.
 - ``word?``: ``boolean`` If true, only whole words will match.

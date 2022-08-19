@@ -6,17 +6,17 @@ import { TextSearchOptions, TextSearchPosition } from "./types";
 export class TextSearchRegex {
   /**
    * Build a regular expression according to the options
-   * @param term
+   * @param query
    * @param options
    */
-  static build(term: string, options?: TextSearchOptions) {
+  static build(query: string, options?: TextSearchOptions) {
     const flags = [];
     let pattern = "";
     if (options?.ignoreCase) {
       flags.push("i");
     }
 
-    for (let char of term) {
+    for (let char of query) {
       let variant = options?.alias ? options?.alias.get(char) : false;
       char = TextSearchRegex.scape(char);
       if (variant) {

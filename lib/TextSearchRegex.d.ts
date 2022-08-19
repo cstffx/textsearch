@@ -5,10 +5,10 @@ import { TextSearchOptions } from "./types";
 export declare class TextSearchRegex {
     /**
      * Build a regular expression according to the options
-     * @param term
+     * @param query
      * @param options
      */
-    static build(term: string, options?: TextSearchOptions): RegExp;
+    static build(query: string, options?: TextSearchOptions): RegExp;
     /**
      * Escape special characters
      * @param char

@@ -45,11 +45,11 @@ export class TextSearch {
 
   /**
    * Update the current regex
-   * @param term
+   * @param query
    * @param options
    * @private
    */
-  private updateRegex(term: string) {
-    this.regex = TextSearchRegex.build(term, this.options);
+  private updateRegex(query: string) {
+    this.regex = TextSearchRegex.build(query, this.options);
   }
 }
