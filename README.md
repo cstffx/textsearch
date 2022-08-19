@@ -81,3 +81,6 @@ Both ``TextSeach`` and ``TextSearchRegex`` receive the next options:
 - ``ignoreCase?``: ``boolean`` If true no match case will be applied.
 - ``alias?``: ``Map<string, string>`` Indicate that a character can be treated as another.
 - ``word?``: ``boolean`` If true, only whole words will match.
+
+License
+MIT @ Elihu Diaz 2022. See LICENSE.
